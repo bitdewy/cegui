@@ -1,11 +1,23 @@
 -----------------------------------------
 -- Start of handler functions
 -----------------------------------------
+
+local winMgr = CEGUI.WindowManager:getSingleton()
+-- load our demo8 window layout
+local root = winMgr:loadLayoutFromFile("Demo8.layout")
+
+-- subscribe required events
+root:getChild("Demo8/ViewScroll"):subscribeEvent("ScrollPositionChanged", "panelSlideHandler")
+root:getChild("Demo8/Window1/Controls/Blue"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
+root:getChild("Demo8/Window1/Controls/Red"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
+root:getChild("Demo8/Window1/Controls/Green"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
+root:getChild("Demo8/Window1/Controls/Add"):subscribeEvent("Clicked", "addItemHandler")
+
 -----------------------------------------
 -- Alpha slider handler (not used!)
 -----------------------------------------
 function sliderHandler(args)
-    CEGUI.System:getSingleton():getDefaultGUIContext():getRootWindow():setAlpha(CEGUI.toSlider(CEGUI.toWindowEventArgs(args).window):getCurrentValue())
+    root:setAlpha(CEGUI.toSlider(CEGUI.toWindowEventArgs(args).window):getCurrentValue())
 end
 
 -----------------------------------------
@@ -16,7 +28,7 @@ end
 -----------------------------------------
 function panelSlideHandler(args)
     local scroller = CEGUI.toScrollbar(CEGUI.toWindowEventArgs(args).window)
-    local demoWnd = CEGUI.System:getSingleton():getDefaultGUIContext():getRootWindow():getChild("Demo8")
+    local demoWnd = root:getChild("Demo8")
 
     local parentPixelHeight = demoWnd:getParent():getPixelSize().height
     local relHeight = CEGUI.CoordConverter:asRelative(demoWnd:getHeight(), parentPixelHeight)
@@ -29,9 +41,7 @@ end
 -- Handler to set preview colour when
 -- colour selector scrollers change
 -----------------------------------------
-function colourChangeHandler(args)
-    local root = CEGUI.System:getSingleton():getDefaultGUIContext():getRootWindow()
-    
+function colourChangeHandler(args)    
     local r = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Red")):getScrollPosition()
     local g = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Green")):getScrollPosition()
     local b = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Blue")):getScrollPosition()
@@ -46,8 +56,6 @@ end
 -- Handler to add an item to the box
 -----------------------------------------
 function addItemHandler(args)
-    local root = CEGUI.System:getSingleton():getDefaultGUIContext():getRootWindow()
-
     local text = root:getChild("Demo8/Window1/Controls/Editbox"):getText()
     local cols = CEGUI.PropertyHelper:stringToColourRect(root:getChild("Demo8/Window1/Controls/ColourSample"):getProperty("ImageColours"))
 
@@ -61,24 +69,18 @@ end
 -----------------------------------------
 -- Script Entry Point
 -----------------------------------------
-local guiSystem = CEGUI.System:getSingleton()
-local schemeMgr = CEGUI.SchemeManager:getSingleton()
-local winMgr = CEGUI.WindowManager:getSingleton()
+function initialize(args)
+    local context = CEGUI.toGUIContextEventArgs(args).context
+    local guiSystem = CEGUI.System:getSingleton()
+    local schemeMgr = CEGUI.SchemeManager:getSingleton()
 
--- load our demo8 scheme
-schemeMgr:createFromFile("TaharezLook.scheme");
--- load our demo8 window layout
-local root = winMgr:loadLayoutFromFile("Demo8.layout")
--- set the layout as the root
-guiSystem:getDefaultGUIContext():setRootWindow(root)
--- set default mouse cursor
-guiSystem:getDefaultGUIContext():getMouseCursor():setDefaultImage("TaharezLook/MouseArrow")
--- set the Tooltip type
-guiSystem:getDefaultGUIContext():setDefaultTooltipType("TaharezLook/Tooltip")
+    -- load our demo8 scheme
+    schemeMgr:createFromFile("TaharezLook.scheme");
 
--- subscribe required events
-root:getChild("Demo8/ViewScroll"):subscribeEvent("ScrollPositionChanged", "panelSlideHandler")
-root:getChild("Demo8/Window1/Controls/Blue"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Red"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Green"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Add"):subscribeEvent("Clicked", "addItemHandler")
+    -- set the layout as the root
+    context:setRootWindow(root)
+    -- set default mouse cursor
+    context:getMouseCursor():setDefaultImage("TaharezLook/MouseArrow")
+    -- set the Tooltip type
+    context:setDefaultTooltipType("TaharezLook/Tooltip")
+end

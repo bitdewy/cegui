@@ -23,7 +23,7 @@ add_subdirectory(TreeDemo)
 add_subdirectory(CommonDialogsDemo)
 
 if (CEGUI_BUILD_LUA_MODULE)
-    # add_subdirectory(Demo8)
+    add_subdirectory(Demo8)
 endif()
 
 # Simple test for GLES renderer.

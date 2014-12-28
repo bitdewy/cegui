@@ -27,18 +27,18 @@
 #ifndef _Sample_Demo8_h_
 #define _Sample_Demo8_h_
 
-#include "CEGuiSample.h"
+#include "SampleBase.h"
 #include "CEGUI/CEGUI.h"
 
 // Sample class
-class Demo8Sample : public CEGuiSample
+class Demo8Sample : public Sample
 {
 public:
     // method to initialse the samples windows and events.
-    bool initialiseSample();
+    bool initialise(CEGUI::GUIContext* guiContext);
 
     // method to perform any required cleanup operations.
-    void cleanupSample(void);
+    void deinitialise();
 
 protected:
 };

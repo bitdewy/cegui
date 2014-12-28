@@ -28,22 +28,10 @@
 #include "CEGUI/CEGUI.h"
 #include "CEGUI/ScriptModules/Lua/ScriptModule.h"
 
-int main(int /*argc*/, char* /*argv*/[])
-{
-    // This is a basic start-up for the sample application which is
-    // object orientated in nature, so we just need an instance of
-    // the CEGuiSample based object and then tell that sample application
-    // to run.  All of the samples will use code similar to this in the
-    // main/WinMain function.
-    Demo8Sample app;
-    return app.run();
-}
-
-
 /*************************************************************************
     Sample specific initialisation goes here.
 *************************************************************************/
-bool Demo8Sample::initialiseSample()
+bool Demo8Sample::initialise(CEGUI::GUIContext* guiContext)
 {
     using namespace CEGUI;
 
@@ -56,6 +44,7 @@ bool Demo8Sample::initialiseSample()
     // execute the demo8 script which controls the rest of this demo
     System::getSingleton().executeScriptFile("demo8.lua");
 
+    scriptmod.executeScriptedEventHandler("initialize", CEGUI::GUIContextEventArgs(guiContext));
     // success!
     return true;
 }
@@ -63,7 +52,7 @@ bool Demo8Sample::initialiseSample()
 /*************************************************************************
     Cleans up resources allocated in the initialiseSample call.
 *************************************************************************/
-void Demo8Sample::cleanupSample()
+void Demo8Sample::deinitialise()
 {
     using namespace CEGUI;
 
@@ -73,5 +62,15 @@ void Demo8Sample::cleanupSample()
     // clear script module, since we're going to destroy it.
     System::getSingleton().setScriptingModule(0);
 
-    LuaScriptModule::destroy(*script_mod);
+    // TODO bitdewy:
+    //LuaScriptModule::destroy(*script_mod);
+}
+
+/*************************************************************************
+Define the module function that returns an instance of the sample
+*************************************************************************/
+extern "C" SAMPLE_EXPORT Sample& getSampleInstance()
+{
+  static Demo8Sample sample;
+  return sample;
 }
