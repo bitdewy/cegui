@@ -62,7 +62,7 @@ void Demo8Sample::deinitialise()
     // clear script module, since we're going to destroy it.
     System::getSingleton().setScriptingModule(0);
 
-    // TODO bitdewy:
+    // TODO bitdewy: memory leak !!!
     //LuaScriptModule::destroy(*script_mod);
 }
 

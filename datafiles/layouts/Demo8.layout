@@ -6,6 +6,7 @@
         <Property name="Size" value="{{1,0},{2,0}}" />
 
         <Window name="ViewScroll" type="TaharezLook/LargeVerticalScrollbar">
+            <Event name="ScrollPositionChanged" function="panelSlideHandler" />
             <Property name="Position" value="{{0,0},{0,0}}" />
             <Property name="Size" value="{{0.03,0},{0.75,0}}" />
             <Property name="DocumentSize" value="2" />
@@ -36,6 +37,7 @@
                 <Property name="Size" value="{{0.9,0},{0.5,0}}" />
 
                 <Window name="Red" type="TaharezLook/HorizontalScrollbar">
+                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.05,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -47,6 +49,7 @@
                 </Window>
 
                 <Window name="Green" type="TaharezLook/HorizontalScrollbar">
+                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.12,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -58,6 +61,7 @@
                 </Window>
 
                 <Window name="Blue" type="TaharezLook/HorizontalScrollbar">
+                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.19,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -85,6 +89,7 @@
                 </Window>
 
                 <Window name="Add" type="TaharezLook/Button">
+                    <Event name="Clicked" function="addItemHandler" />
                     <Property name="Position" value="{{0.68,0},{0.38,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.3,0},{0.15,0}}" />

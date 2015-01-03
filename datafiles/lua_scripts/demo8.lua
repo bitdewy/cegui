@@ -6,13 +6,6 @@ local winMgr = CEGUI.WindowManager:getSingleton()
 -- load our demo8 window layout
 local root = winMgr:loadLayoutFromFile("Demo8.layout")
 
--- subscribe required events
-root:getChild("Demo8/ViewScroll"):subscribeEvent("ScrollPositionChanged", "panelSlideHandler")
-root:getChild("Demo8/Window1/Controls/Blue"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Red"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Green"):subscribeEvent("ScrollPositionChanged", "colourChangeHandler")
-root:getChild("Demo8/Window1/Controls/Add"):subscribeEvent("Clicked", "addItemHandler")
-
 -----------------------------------------
 -- Alpha slider handler (not used!)
 -----------------------------------------
