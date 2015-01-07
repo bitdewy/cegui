@@ -59,7 +59,7 @@ const String WindowManager::GeneratedWindowNameBase("__cewin_uid_");
 const String WindowManager::EventNamespace("WindowManager");
 const String WindowManager::EventWindowCreated("WindowCreated");
 const String WindowManager::EventWindowDestroyed("WindowDestroyed");
-    
+const String WindowManager::EventWindowLayoutLoaded("WindowLayoutLoaded");
 
 /*************************************************************************
     Constructor
@@ -265,7 +265,12 @@ Window* WindowManager::loadLayoutFromContainer(const RawDataContainer& source, P
     // log the completion of loading
     Logger::getSingleton().logEvent("---- Successfully completed loading of GUI layout from a RawDataContainer ----", Standard);
 
-    return handler.getLayoutRootWindow();
+    Window* window = handler.getLayoutRootWindow();
+    // fire event to notify interested parites about the window.
+    WindowEventArgs args(window);
+    fireEvent(EventWindowLayoutLoaded, args, EventNamespace);
+
+    return window;
 }
 
 Window* WindowManager::loadLayoutFromFile(const String& filename, const String& resourceGroup, PropertyCallback* callback, void* userdata)
@@ -297,7 +302,12 @@ Window* WindowManager::loadLayoutFromFile(const String& filename, const String& 
     // log the completion of loading
     Logger::getSingleton().logEvent("---- Successfully completed loading of GUI layout from '" + filename + "' ----", Standard);
 
-	return handler.getLayoutRootWindow();
+    Window* window = handler.getLayoutRootWindow();
+    // fire event to notify interested parites about the window.
+    WindowEventArgs args(window);
+    fireEvent(EventWindowLayoutLoaded, args, EventNamespace);
+
+    return window;
 }
 
 Window* WindowManager::loadLayoutFromString(const String& source, PropertyCallback* callback, void* userdata)
@@ -322,7 +332,12 @@ Window* WindowManager::loadLayoutFromString(const String& source, PropertyCallba
     // log the completion of loading
     Logger::getSingleton().logEvent("---- Successfully completed loading of GUI layout from string ----", Standard);
 
-    return handler.getLayoutRootWindow();
+    Window* window = handler.getLayoutRootWindow();
+    // fire event to notify interested parites about the window.
+    WindowEventArgs args(window);
+    fireEvent(EventWindowLayoutLoaded, args, EventNamespace);
+
+    return window;
 }
 
 bool WindowManager::isDeadPoolEmpty(void) const

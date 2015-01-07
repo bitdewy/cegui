@@ -78,6 +78,11 @@ public:
      * WindowEventArgs::window set to the Window that has been destroyed.
      */
     static const String EventWindowDestroyed;
+    /** Event fired when a Window layout is loaded.
+    * Handlers are passed a const WindowEventArgs reference with
+    * WindowEventArgs::window set to the Window that has just been layout.
+    */
+    static const String EventWindowLayoutLoaded;
 
     static const String GUILayoutSchemaName; //!< Filename of the XML schema used for validating GUILayout files.
 
