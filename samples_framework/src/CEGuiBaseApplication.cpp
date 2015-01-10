@@ -35,7 +35,7 @@
 #include "CEGUI/Scheme.h"
 #include "CEGUI/WindowManager.h"
 #include "CEGUI/falagard/WidgetLookManager.h"
-#include "CEGUI/ScriptModule.h"
+#include "CEGUI/ScriptModules/Lua/ScriptModule.h"
 #include "CEGUI/XMLParser.h"
 #include "CEGUI/GeometryBuffer.h"
 #include "CEGUI/GUIContext.h"
@@ -159,11 +159,19 @@ bool CEGuiBaseApplication::execute(SamplesFrameworkBase* sampleApp)
     d_sampleApp->setApplicationWindowSize(static_cast<int>(area.getWidth()),
                                           static_cast<int>(area.getHeight()));
 
+    // create a script module.
+    CEGUI::LuaScriptModule& scriptmod(CEGUI::LuaScriptModule::create());
+
+    // tell CEGUI to use this scripting module
+    CEGUI::System::getSingleton().setScriptingModule(&scriptmod);
+
     run();
 
     cleanup();
     destroyWindow();
 
+    // destory the script module
+    CEGUI::LuaScriptModule::destroy(scriptmod);
     return true;
 }
 
@@ -173,6 +181,10 @@ void CEGuiBaseApplication::cleanup()
     CEGUI::ImageManager::getSingleton().destroy("cegui_logo");
     d_renderer->destroyGeometryBuffer(*d_logoGeometry);
     d_renderer->destroyGeometryBuffer(*d_FPSGeometry);
+
+    // clear script module, since we're going to destroy it.
+    CEGUI::System::getSingleton().setScriptingModule(0);
+
     CEGUI::System::destroy();
 }
 

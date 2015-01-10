@@ -1,5 +1,9 @@
 # We check if the required dependencies are available for the sample framework
 
+if(NOT CEGUI_BUILD_LUA_MODULE)
+    message(SEND_ERROR "The Samples enbabled - LuaScript Module is required. Please add the dependencies and run 'Configure' in CMake again.")
+endif()
+
 if(CEGUI_BUILD_RENDERER_OGRE AND NOT CEGUI_OGRE_SAMPLES_AVAILABLE)
     message(SEND_ERROR "The Samples and the OgreRenderer are enabled, but Ogre dependencies are missing (boost). Please add the dependencies and run 'Configure' in CMake again.")
 endif()
@@ -296,4 +300,4 @@ if (APPLE)
     )
 endif()
 
-cegui_target_link_libraries(${CEGUI_TARGET_NAME} ${CEGUI_BASE_LIBNAME})
+cegui_target_link_libraries(${CEGUI_TARGET_NAME} ${CEGUI_BASE_LIBNAME} ${CEGUI_LUA_SCRIPTMODULE_LIBNAME})

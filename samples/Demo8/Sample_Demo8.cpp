@@ -35,17 +35,10 @@ bool Demo8Sample::initialise(CEGUI::GUIContext* guiContext)
 {
     using namespace CEGUI;
 
-    // create a script module.
-    LuaScriptModule& scriptmod(LuaScriptModule::create());
-
-    // tell CEGUI to use this scripting module
-    System::getSingleton().setScriptingModule(&scriptmod);
-
     // execute the demo8 script which controls the rest of this demo
     System::getSingleton().executeScriptFile("demo8.lua");
 
-    scriptmod.executeScriptedEventHandler("initialize", CEGUI::GUIContextEventArgs(guiContext));
-    // success!
+    System::getSingleton().getScriptingModule()->executeScriptedEventHandler("initialize", CEGUI::GUIContextEventArgs(guiContext));
     return true;
 }
 
@@ -54,16 +47,6 @@ bool Demo8Sample::initialise(CEGUI::GUIContext* guiContext)
 *************************************************************************/
 void Demo8Sample::deinitialise()
 {
-    using namespace CEGUI;
-
-    LuaScriptModule* script_mod = static_cast<LuaScriptModule*>(
-        System::getSingleton().getScriptingModule());
-
-    // clear script module, since we're going to destroy it.
-    System::getSingleton().setScriptingModule(0);
-
-    // TODO bitdewy: memory leak !!!
-    //LuaScriptModule::destroy(*script_mod);
 }
 
 /*************************************************************************
