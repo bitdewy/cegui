@@ -40,11 +40,6 @@ class HelloWorldDemo : public Sample
 public:
     virtual bool initialise(CEGUI::GUIContext* guiContext);
     virtual void deinitialise();
-
-private:
-    bool handleHelloWorldClicked(const CEGUI::EventArgs& args);
-
-    CEGUI::DefaultWindow*      d_root;
 };
 
 #endif  // end of guard _Sample_FirstWindow_h_
