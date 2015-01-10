@@ -1,9 +1,9 @@
------------------------------------------
--- Script Entry Point
------------------------------------------
 HelloWorldDemo = {}
 HelloWorldDemo.__index = HelloWorldDemo
 
+-----------------------------------------
+-- Script Entry Point
+-----------------------------------------
 function HelloWorldDemo.initialize(args)
     local context = CEGUI.toGUIContextEventArgs(args).context
     local schemeMgr = CEGUI.SchemeManager:getSingleton()
