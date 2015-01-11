@@ -38,7 +38,7 @@ Sample specific initialisation goes here.
 *************************************************************************/
 bool Demo6Sample::initialise(CEGUI::GUIContext* guiContext)
 {
-        // execute the demo8 script which controls the rest of this demo
+    // execute the Demo6 script which controls the rest of this demo
     System::getSingleton().executeScriptFile("Demo6.lua");
 
     System::getSingleton().getScriptingModule()->executeScriptedEventHandler("Demo6.initialize", CEGUI::GUIContextEventArgs(guiContext));
