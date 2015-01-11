@@ -45,6 +45,10 @@ function CEGUI.toGUIContextEventArgs(e)
     return tolua.cast(e,"const CEGUI::GUIContextEventArgs")
 end
 
+function CEGUI.toRegexMatchStateEventArgs(e)
+    return tolua.cast(e,"const CEGUI::RegexMatchStateEventArgs")
+end
+
 CEGUI.EventArgs.toMouseCursorEventArgs      = CEGUI.toMouseCursorEventArgs
 CEGUI.EventArgs.toWindowEventArgs           = CEGUI.toWindowEventArgs
 CEGUI.EventArgs.toActivationEventArgs       = CEGUI.toActivationEventArgs
@@ -55,6 +59,7 @@ CEGUI.EventArgs.toDragDropEventArgs         = CEGUI.toDragDropEventArgs
 CEGUI.EventArgs.toTreeEventArgs             = CEGUI.toTreeEventArgs
 CEGUI.EventArgs.toRenderQueueEventArgs      = CEGUI.toRenderQueueEventArgs
 CEGUI.EventArgs.toGUIContextEventArgs       = CEGUI.toGUIContextEventArgs
+CEGUI.EventArgs.toRegexMatchStateEventArgs  = CEGUI.toRegexMatchStateEventArgs
 
 $]
 
