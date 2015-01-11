@@ -53,9 +53,6 @@ bool CommonDialogsDemo::initialise(CEGUI::GUIContext* guiContext)
     return true;
 }
 
-//----------------------------------------------------------------------------//
-
-
 /*************************************************************************
     Define the module function that returns an instance of the sample
 *************************************************************************/
