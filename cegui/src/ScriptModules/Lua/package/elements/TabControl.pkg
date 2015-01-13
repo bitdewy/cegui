@@ -3,6 +3,14 @@
 ***********************************************************************/
 class TabControl : public Window
 {
+	enum TabPanePosition
+	{
+		Top,
+		Bottom
+	};
+
+	TabPanePosition getTabPanePosition(void) const;
+	void setTabPanePosition(TabPanePosition pos);
 	unsigned int getTabCount() const;
 
 	void setSelectedTab(utf8string name);

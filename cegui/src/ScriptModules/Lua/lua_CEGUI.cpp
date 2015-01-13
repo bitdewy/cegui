@@ -1,6 +1,6 @@
 /*
 ** Lua binding: CEGUI
-** Generated automatically by tolua++-1.0.92 on 01/13/15 20:03:14.
+** Generated automatically by tolua++-1.0.92 on 01/14/15 01:27:05.
 */
 
 #ifndef __cplusplus
@@ -36900,6 +36900,71 @@ static int tolua_CEGUI_CEGUI_TabButton_getTargetWindow00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: getTabPanePosition of class  CEGUI::TabControl */
+#ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_getTabPanePosition00
+static int tolua_CEGUI_CEGUI_TabControl_getTabPanePosition00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+ !tolua_isusertype(tolua_S,1,"const CEGUI::TabControl",0,&tolua_err) ||
+ !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+ goto tolua_lerror;
+ else
+#endif
+ {
+  const CEGUI::TabControl* self = (const CEGUI::TabControl*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+ if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getTabPanePosition'",NULL);
+#endif
+ {
+  CEGUI::TabControl::TabPanePosition tolua_ret = (CEGUI::TabControl::TabPanePosition)  self->getTabPanePosition();
+ tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+ }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getTabPanePosition'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setTabPanePosition of class  CEGUI::TabControl */
+#ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_setTabPanePosition00
+static int tolua_CEGUI_CEGUI_TabControl_setTabPanePosition00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+ !tolua_isusertype(tolua_S,1,"CEGUI::TabControl",0,&tolua_err) ||
+ !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+ !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+ goto tolua_lerror;
+ else
+#endif
+ {
+  CEGUI::TabControl* self = (CEGUI::TabControl*)  tolua_tousertype(tolua_S,1,0);
+  CEGUI::TabControl::TabPanePosition pos = ((CEGUI::TabControl::TabPanePosition) (int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+ if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setTabPanePosition'",NULL);
+#endif
+ {
+  self->setTabPanePosition(pos);
+ }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setTabPanePosition'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: getTabCount of class  CEGUI::TabControl */
 #ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_getTabCount00
 static int tolua_CEGUI_CEGUI_TabControl_getTabCount00(lua_State* tolua_S)
@@ -66924,6 +66989,10 @@ int tolua_CEGUI_open (lua_State* tolua_S)
   tolua_endmodule(tolua_S);
   tolua_cclass(tolua_S,"TabControl","CEGUI::TabControl","CEGUI::Window",NULL);
   tolua_beginmodule(tolua_S,"TabControl");
+   tolua_constant(tolua_S,"Top",CEGUI::TabControl::Top);
+   tolua_constant(tolua_S,"Bottom",CEGUI::TabControl::Bottom);
+   tolua_function(tolua_S,"getTabPanePosition",tolua_CEGUI_CEGUI_TabControl_getTabPanePosition00);
+   tolua_function(tolua_S,"setTabPanePosition",tolua_CEGUI_CEGUI_TabControl_setTabPanePosition00);
    tolua_function(tolua_S,"getTabCount",tolua_CEGUI_CEGUI_TabControl_getTabCount00);
    tolua_function(tolua_S,"setSelectedTab",tolua_CEGUI_CEGUI_TabControl_setSelectedTab00);
    tolua_function(tolua_S,"setSelectedTab",tolua_CEGUI_CEGUI_TabControl_setSelectedTab01);
