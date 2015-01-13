@@ -29,12 +29,6 @@
 
 #include "SampleBase.h"
 
-namespace CEGUI
-{
-    class Window;
-    class DefaultWindow;
-}
-
 class HelloWorldDemo : public Sample
 {
 public:

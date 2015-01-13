@@ -105,7 +105,7 @@ end
 -- *************************************************************************/
 function ScrollablePane.demoNewDialog(args)
     -- add a dialog to this pane so we have some more stuff to drag around :)
-	local winMgr = CEGUI.WindowManager:getSingleton()
+    local winMgr = CEGUI.WindowManager:getSingleton()
     local dlg = winMgr:createWindow("WindowsLook/FrameWindow")
     dlg:setMinSize(CEGUI.PropertyHelper:stringToUSize("{{0,200},{0,100}}"))
     dlg:setSize(CEGUI.PropertyHelper:stringToUSize("{{0,200},{0,100}}"))
@@ -143,5 +143,5 @@ function ScrollablePane.hotkeysHandler(args)
 end
 
 function ScrollablePane.fileQuit(args)
-	return true
+    return true
 end

@@ -35,11 +35,6 @@ class EditboxValidation : public Sample
 public:
     bool initialise(CEGUI::GUIContext* guiContext);
     void deinitialise();
-
-protected:
-    bool validationChangeHandler(const CEGUI::EventArgs& args);
-    bool quitButtonHandler(const CEGUI::EventArgs& args);
 };
 
 #endif
-

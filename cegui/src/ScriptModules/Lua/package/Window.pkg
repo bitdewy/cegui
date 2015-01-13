@@ -52,6 +52,7 @@ class Window : public NamedElement
     Window* getActiveChild(void);
     const Window* getActiveChild(void) const;
 
+    bool isChild(utf8string name_path) const;
     bool isChild(unsigned int ID) const;
     bool isChildRecursive(unsigned int ID) const;
     bool isAncestor(unsigned int ID) const;

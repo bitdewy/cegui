@@ -44,22 +44,6 @@ public:
     virtual bool initialise(CEGUI::GUIContext* guiContext);
     // method to perform any required cleanup operations.
     virtual void deinitialise();
-
-protected:
-    // helper methods
-    void createDemoWindows(CEGUI::Window* root);
-    void initDemoEventWiring(CEGUI::Window* root);
-
-    // event handlers
-    bool handleQuit(const CEGUI::EventArgs& e);
-    bool handleAddColumn(const CEGUI::EventArgs& e);
-    bool handleDeleteColumn(const CEGUI::EventArgs& e);
-    bool handleAddRow(const CEGUI::EventArgs& e);
-    bool handleDeleteRow(const CEGUI::EventArgs& e);
-    bool handleSetItem(const CEGUI::EventArgs& e);
-    bool handleSelectChanged(const CEGUI::EventArgs& e);
-    bool handleSelectModeChanged(const CEGUI::EventArgs& e);
-    bool handleContentsChanged(const CEGUI::EventArgs& e);
 };
 
 #endif  // end of guard _Sample_Demo6_h_
