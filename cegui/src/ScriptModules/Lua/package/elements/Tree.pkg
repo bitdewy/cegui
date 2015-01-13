@@ -19,6 +19,7 @@ class Tree : public Window
 	tolua_throws|CEGUI::Exception,error|std::exception,error|any,error| TreeItem*	findNextItemWithID(unsigned int searchID, const TreeItem* start_item);
 	
 	bool	isTreeItemInList(const TreeItem* item) const;
+	void	initialise(void);
 	void	resetList(void);
 	void	addItem(TreeItem* item);
 	

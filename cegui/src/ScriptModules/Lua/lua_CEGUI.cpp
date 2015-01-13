@@ -1,6 +1,6 @@
 /*
 ** Lua binding: CEGUI
-** Generated automatically by tolua++-1.0.92 on 01/13/15 17:39:56.
+** Generated automatically by tolua++-1.0.92 on 01/13/15 20:03:14.
 */
 
 #ifndef __cplusplus
@@ -35784,6 +35784,37 @@ static int tolua_CEGUI_CEGUI_Tree_isTreeItemInList00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: initialise of class  CEGUI::Tree */
+#ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_Tree_initialise00
+static int tolua_CEGUI_CEGUI_Tree_initialise00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+ !tolua_isusertype(tolua_S,1,"CEGUI::Tree",0,&tolua_err) ||
+ !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+ goto tolua_lerror;
+ else
+#endif
+ {
+  CEGUI::Tree* self = (CEGUI::Tree*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+ if (!self) tolua_error(tolua_S,"invalid 'self' in function 'initialise'",NULL);
+#endif
+ {
+  self->initialise();
+ }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'initialise'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: resetList of class  CEGUI::Tree */
 #ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_Tree_resetList00
 static int tolua_CEGUI_CEGUI_Tree_resetList00(lua_State* tolua_S)
@@ -66840,6 +66871,7 @@ int tolua_CEGUI_open (lua_State* tolua_S)
    tolua_function(tolua_S,"findFirstItemWithID",tolua_CEGUI_CEGUI_Tree_findFirstItemWithID00);
    tolua_function(tolua_S,"findNextItemWithID",tolua_CEGUI_CEGUI_Tree_findNextItemWithID00);
    tolua_function(tolua_S,"isTreeItemInList",tolua_CEGUI_CEGUI_Tree_isTreeItemInList00);
+   tolua_function(tolua_S,"initialise",tolua_CEGUI_CEGUI_Tree_initialise00);
    tolua_function(tolua_S,"resetList",tolua_CEGUI_CEGUI_Tree_resetList00);
    tolua_function(tolua_S,"addItem",tolua_CEGUI_CEGUI_Tree_addItem00);
    tolua_function(tolua_S,"insertItem",tolua_CEGUI_CEGUI_Tree_insertItem00);

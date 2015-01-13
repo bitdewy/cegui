@@ -32,24 +32,13 @@
 
 
 class TreeDemoSample : public Sample
-   {
+{
 public:
-   // method to initialse the samples windows and events.
-   virtual bool initialise(CEGUI::GUIContext* guiContext);
+    // method to initialse the samples windows and events.
+    virtual bool initialise(CEGUI::GUIContext* guiContext);
 
-   // method to perform any required cleanup operations.
-   virtual void deinitialise();
-
-protected:
-   CEGUI::Window* TreeDemoWindow;
-   static const unsigned int TreeID;
-   static const unsigned int EditBoxID;
-
-   bool handleRootKeyDown(const CEGUI::EventArgs& args);
-   bool handleEventSelectionChanged(const CEGUI::EventArgs& args);
-   bool handleEventBranchOpened(const CEGUI::EventArgs& args);
-   bool handleEventBranchClosed(const CEGUI::EventArgs& args);
-   };
-
+    // method to perform any required cleanup operations.
+    virtual void deinitialise();
+};
 
 #endif  // end of guard _Sample_TreeDemo_h_
