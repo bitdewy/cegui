@@ -57,7 +57,7 @@ function TabControlDemo.initialize(args)
     -- here we will use a StaticImage as the root, then we can use it to place a background image
     local background = winMgr:createWindow(SKIN.."/StaticImage")
     -- set area rectangle
-    background:setArea(CEGUI.PropertyHelper:stringToURect("{{0,0},{0,0},{1,0},{1,0}}"));
+    background:setArea(CEGUI.PropertyHelper:stringToURect("{{0,0},{0,0},{1,0},{1,0}}"))
     -- disable frame and standard background
     background:setProperty("FrameEnabled", "false")
     background:setProperty("BackgroundEnabled", "false")
@@ -161,7 +161,7 @@ function TabControlDemo.refreshPageList()
 end
 
 function TabControlDemo.handleTabPanePos(args)
-    local tpp;
+    local tpp
 
     local id = CEGUI.toWindowEventArgs(args).window:getID()
     
@@ -204,7 +204,7 @@ function TabControlDemo.handleTabPadding(args)
         CEGUI.toTabControl(root:getChild("Frame/TabControl")):setTabTextPadding(CEGUI.PropertyHelper:stringToUDim("{0,"..sb:getScrollPosition().."}"))
     end
 
-    return true;
+    return true
 end
 
 function TabControlDemo.handleAddTab(args)
@@ -216,19 +216,12 @@ function TabControlDemo.handleAddTab(args)
 
         -- Add some tab buttons once
         for num = 3, 16 do
-            local pgname;
+            local pgname
             pgname = "Page"..num
 
             if not root:isChild("Frame/TabControl/"..pgname) then
                 local pg = CEGUI.WindowManager:getSingleton():loadLayoutFromFile("TabPage.layout")
-	            local err = pcall(function()
-	            	pg = CEGUI.WindowManager:getSingleton():loadLayoutFromFile("TabPage.layout")
-	                pg:setName(pgname)
-	            end)
-	            if err then
-	                print("Some error occured while adding a tabpage. Please see the logfile.")
-	                break
-	            end
+                pg:setName(pgname)
 
 	            -- This window has just been created while loading the layout
 	            if pg:isChild("Text") then
@@ -239,7 +232,7 @@ function TabControlDemo.handleAddTab(args)
 	                tc:addTab(pg)
 
 	                TabControlDemo.refreshPageList()
-	                break;
+	                break
                 end
             end     
         end
@@ -319,7 +312,7 @@ function TabControlDemo.handleDel()
             local content = tc:getTabContents(lbi:getText())
             tc:removeTab(lbi:getText())
             -- Remove the actual window from Cegui
-            WindowManager:getSingleton():destroyWindow(content)
+            CEGUI.WindowManager:getSingleton():destroyWindow(content)
 
             TabControlDemo.refreshPageList()
         end

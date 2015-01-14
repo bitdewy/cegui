@@ -17,6 +17,10 @@ class TabControl : public Window
 	void setSelectedTab(unsigned int ID);
 	void setSelectedTabAtIndex(unsigned int index);
 
+	void makeTabVisible(utf8string name);
+
+	void makeTabVisible(unsigned int ID);
+
 	Window* getTabContentsAtIndex(unsigned int index) const;
 	Window* getTabContents(utf8string name) const;
 	Window* getTabContents(unsigned int ID) const;

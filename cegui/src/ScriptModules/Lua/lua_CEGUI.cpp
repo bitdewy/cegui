@@ -1,6 +1,6 @@
 /*
 ** Lua binding: CEGUI
-** Generated automatically by tolua++-1.0.92 on 01/14/15 01:27:05.
+** Generated automatically by tolua++-1.0.92 on 01/14/15 11:23:33.
 */
 
 #ifndef __cplusplus
@@ -37091,6 +37091,67 @@ static int tolua_CEGUI_CEGUI_TabControl_setSelectedTabAtIndex00(lua_State* tolua
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: makeTabVisible of class  CEGUI::TabControl */
+#ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_makeTabVisible00
+static int tolua_CEGUI_CEGUI_TabControl_makeTabVisible00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+ !tolua_isusertype(tolua_S,1,"CEGUI::TabControl",0,&tolua_err) ||
+ !tolua_isutf8string(tolua_S,2,0,&tolua_err) ||
+ !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+ goto tolua_lerror;
+ else
+#endif
+ {
+  CEGUI::TabControl* self = (CEGUI::TabControl*)  tolua_tousertype(tolua_S,1,0);
+  utf8string name = ((utf8string)  tolua_toutf8string(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+ if (!self) tolua_error(tolua_S,"invalid 'self' in function 'makeTabVisible'",NULL);
+#endif
+ {
+  self->makeTabVisible(name);
+ }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'makeTabVisible'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: makeTabVisible of class  CEGUI::TabControl */
+#ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_makeTabVisible01
+static int tolua_CEGUI_CEGUI_TabControl_makeTabVisible01(lua_State* tolua_S)
+{
+ tolua_Error tolua_err;
+ if (
+ !tolua_isusertype(tolua_S,1,"CEGUI::TabControl",0,&tolua_err) ||
+ !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+ !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+ goto tolua_lerror;
+ else
+ {
+  CEGUI::TabControl* self = (CEGUI::TabControl*)  tolua_tousertype(tolua_S,1,0);
+  unsigned int ID = ((unsigned int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+ if (!self) tolua_error(tolua_S,"invalid 'self' in function 'makeTabVisible'",NULL);
+#endif
+ {
+  self->makeTabVisible(ID);
+ }
+ }
+ return 0;
+tolua_lerror:
+ return tolua_CEGUI_CEGUI_TabControl_makeTabVisible00(tolua_S);
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: getTabContentsAtIndex of class  CEGUI::TabControl */
 #ifndef TOLUA_DISABLE_tolua_CEGUI_CEGUI_TabControl_getTabContentsAtIndex00
 static int tolua_CEGUI_CEGUI_TabControl_getTabContentsAtIndex00(lua_State* tolua_S)
@@ -66997,6 +67058,8 @@ int tolua_CEGUI_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setSelectedTab",tolua_CEGUI_CEGUI_TabControl_setSelectedTab00);
    tolua_function(tolua_S,"setSelectedTab",tolua_CEGUI_CEGUI_TabControl_setSelectedTab01);
    tolua_function(tolua_S,"setSelectedTabAtIndex",tolua_CEGUI_CEGUI_TabControl_setSelectedTabAtIndex00);
+   tolua_function(tolua_S,"makeTabVisible",tolua_CEGUI_CEGUI_TabControl_makeTabVisible00);
+   tolua_function(tolua_S,"makeTabVisible",tolua_CEGUI_CEGUI_TabControl_makeTabVisible01);
    tolua_function(tolua_S,"getTabContentsAtIndex",tolua_CEGUI_CEGUI_TabControl_getTabContentsAtIndex00);
    tolua_function(tolua_S,"getTabContents",tolua_CEGUI_CEGUI_TabControl_getTabContents00);
    tolua_function(tolua_S,"getTabContents",tolua_CEGUI_CEGUI_TabControl_getTabContents01);
