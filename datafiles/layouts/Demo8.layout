@@ -4,6 +4,7 @@
     <Window name="Demo8" type="DefaultWindow">
         <Property name="MaxSize" value="{{1,0},{2,0}}" />
         <Property name="Size" value="{{1,0},{2,0}}" />
+        <UserString name="DataContext" value="Demo8Data" />
 
         <Window name="ViewScroll" type="TaharezLook/LargeVerticalScrollbar">
             <Event name="ScrollPositionChanged" function="panelSlideHandler" />
@@ -37,7 +38,6 @@
                 <Property name="Size" value="{{0.9,0},{0.5,0}}" />
 
                 <Window name="Red" type="TaharezLook/HorizontalScrollbar">
-                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.05,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -46,10 +46,10 @@
                     <Property name="StepSize" value="0.00392" />
                     <Property name="OverlapSize" value="0.00392" />
                     <Property name="TooltipText" value="Slider to adjust the red colour component." />
+                    <UserString name="Binding" value="ScrollPosition r" />
                 </Window>
 
                 <Window name="Green" type="TaharezLook/HorizontalScrollbar">
-                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.12,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -58,10 +58,10 @@
                     <Property name="StepSize" value="0.00392" />
                     <Property name="OverlapSize" value="0.00392" />
                     <Property name="TooltipText" value="Slider to adjust the green colour component." />
+                    <UserString name="Binding" value="ScrollPosition g" />
                 </Window>
 
                 <Window name="Blue" type="TaharezLook/HorizontalScrollbar">
-                    <Event name="ScrollPositionChanged" function="colourChangeHandler" />
                     <Property name="Position" value="{{0.05,0},{0.19,0}}" />
                     <Property name="MaxSize" value="{{1,0},{1,0}}" />
                     <Property name="Size" value="{{0.9,0},{0.06,0}}" />
@@ -70,6 +70,7 @@
                     <Property name="StepSize" value="0.00392" />
                     <Property name="OverlapSize" value="0.00392" />
                     <Property name="TooltipText" value="Slider to adjust the blue colour component." />
+                    <UserString name="Binding" value="ScrollPosition b" />
                 </Window>
 
                 <Window name="ColourSample" type="TaharezLook/StaticImage">

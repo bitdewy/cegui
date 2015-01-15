@@ -35,8 +35,8 @@ bool Demo8Sample::initialise(CEGUI::GUIContext* guiContext)
 {
     using namespace CEGUI;
 
-    // execute the demo8 script which controls the rest of this demo
-    System::getSingleton().executeScriptFile("demo8.lua");
+    // execute the Demo8 script which controls the rest of this demo
+    System::getSingleton().executeScriptFile("Demo8.lua");
 
     System::getSingleton().getScriptingModule()->executeScriptedEventHandler("initialize", CEGUI::GUIContextEventArgs(guiContext));
     return true;

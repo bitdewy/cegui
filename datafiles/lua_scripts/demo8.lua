@@ -1,6 +1,7 @@
 -----------------------------------------
 -- Start of handler functions
 -----------------------------------------
+require("Echo")
 
 local winMgr = CEGUI.WindowManager:getSingleton()
 -- load our demo8 window layout
