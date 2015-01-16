@@ -8,14 +8,20 @@ function _M:_init(init)
 	return self
 end
 
-function _M:subscribeEvent(name, action)
+function _M:subscribeEvent(name, window, property)
 	if not name then
 		error("ModelBase.subscribeEvent error, name is nil")
 	end
-	if type(action) ~= "function" then
-		error("ModelBase.subscribeEvent error, action is not a lua function")
+
+	if not window then
+		error("ModelBase.subscribeEvent error, window is nil")
 	end
-	self.event[name] = action
+
+	if not property then
+		error("ModelBase.subscribeEvent error, property is nil")
+	end
+	
+	self.event[name] = { window, property }
 end
 
 function _M:setProperty(name, value)
@@ -27,13 +33,22 @@ function _M:setProperty(name, value)
 		error("no property" .. name)
 	end
 
-	if self.value[name] ~= value then
-		print("property: "..name.." value: "..value)
-		self.value[name] = value
+	if self.value[name] == value then
+		return
+	end
 
-		if self.event[name] then
-			self.event[name](value)
-		end
+	print("property: "..name.." value: "..value)
+	self.value[name] = value
+
+	if not self.event[name] then
+		print("no "..name.." changed event bind.")	
+	end
+
+	local unpack = unpack or table.unpack
+	local window, property = unpack(self.event[name])
+
+	if window:getProperty(property) ~= value then
+		window:setProperty(property, value)
 	end
 end
 

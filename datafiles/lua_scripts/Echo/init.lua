@@ -1,3 +1,5 @@
 require("Echo.Binding")
 
-CEGUI.WindowManager:getSingleton():subscribeEvent("WindowLayoutLoaded", "windowLayoutLoadedHandler")
+local winMgr = CEGUI.WindowManager:getSingleton()
+winMgr:subscribeEvent("WindowLayoutLoaded", "onWindowLayoutLoaded")
+winMgr:subscribeEvent("WindowDestroyed", "onWindowDestroyed")
