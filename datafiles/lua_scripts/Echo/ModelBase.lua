@@ -5,6 +5,7 @@ function _M:_init(init)
 	local self = setmetatable({}, _M)
 	self.value = init
 	self.event = {}
+	self.removed = {}
 	return self
 end
 
@@ -20,8 +21,17 @@ function _M:subscribeEvent(name, window, property)
 	if not property then
 		error("ModelBase.subscribeEvent error, property is nil")
 	end
-	
-	self.event[name] = { window, property }
+	if not self.event[name] then
+		self.event[name] = {}
+	end
+	table.insert(self.event[name], { window, property })
+end
+
+function _M:unSubscribeEvent(window)
+	if not window then
+		error("ModelBase.unSubscribeEvent error, window is nil")
+	end
+	self.removed[window] = true
 end
 
 function _M:setProperty(name, value)
@@ -45,10 +55,11 @@ function _M:setProperty(name, value)
 	end
 
 	local unpack = unpack or table.unpack
-	local window, property = unpack(self.event[name])
-
-	if window:getProperty(property) ~= value then
-		window:setProperty(property, value)
+	for i, v in ipairs(self.event[name]) do
+		local window, property = unpack(v)
+		if not self.removed[window] and window:getProperty(property) ~= value then
+			window:setProperty(property, value)
+		end
 	end
 end
 

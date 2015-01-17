@@ -37,6 +37,8 @@ function Listener.unRegisterEventHandler(window)
 	if not window then
 		error("Listener.unRegisterEventHandler error, window is nil")
 	end
-	
+	local unpack = unpack or table.unpack
+	local model, key = unpack(elements[window])
+	model:unSubscribeEvent(window)
 	elements[window] = nil
 end

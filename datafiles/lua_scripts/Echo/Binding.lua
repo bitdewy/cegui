@@ -36,7 +36,7 @@ function _M.bindProperties(window)
 		local event = Event[value[1]]
 		model:subscribeEvent(key, window, property)
 
-		if event and not window:isEventPresent(event) then
+		if event then
 			window:subscribeEvent(event, "Listener.on"..event)
 			Listener.registerEventHandler(window, model, key)
 		end
