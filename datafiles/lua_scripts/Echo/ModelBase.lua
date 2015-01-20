@@ -47,7 +47,7 @@ function _M:setProperty(name, value)
 		return
 	end
 
-	print("property: "..name.." value: "..value)
+	print("set property: "..name.." value: "..value)
 	self.value[name] = value
 
 	if not self.event[name] then
@@ -72,6 +72,7 @@ function _M:getProperty(name)
 		error("no property" .. name)
 	end
 
+	print("get property: "..name.." value: "..self.value[name])
 	return self.value[name]
 end
 

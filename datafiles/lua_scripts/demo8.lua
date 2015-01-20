@@ -3,6 +3,8 @@
 -----------------------------------------
 require("Echo")
 
+local model = require("Demo8Data")
+
 local winMgr = CEGUI.WindowManager:getSingleton()
 -- load our demo8 window layout
 local root = winMgr:loadLayoutFromFile("Demo8.layout")
@@ -36,9 +38,9 @@ end
 -- colour selector scrollers change
 -----------------------------------------
 function colourChangeHandler(args)    
-    local r = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Red")):getScrollPosition()
-    local g = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Green")):getScrollPosition()
-    local b = CEGUI.toScrollbar(root:getChild("Demo8/Window1/Controls/Blue")):getScrollPosition()
+    local r = model:getProperty("r")
+    local g = model:getProperty("g")
+    local b = model:getProperty("b")
     local col = CEGUI.Colour:new_local(r, g, b, 1)
     local crect = CEGUI.ColourRect(col)
 
