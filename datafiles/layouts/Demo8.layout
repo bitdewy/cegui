@@ -83,6 +83,7 @@
                     <Property name="Image" value="TaharezLook/MultiListSelectionBrush" />
                     <Property name="ImageColours" value="tl:0 tr:0 bl:0 br:0" />
                     <Property name="TooltipText" value="Shows a sample of the selected colour." />
+                    <UserString name="Binding" value="ImageColours colour" />
                 </Window>
 
                 <Window name="Editbox" type="TaharezLook/Editbox">

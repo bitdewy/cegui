@@ -40,7 +40,7 @@ function _M:setProperty(name, value)
 	end
 
 	if not self.value[name] then
-		error("no property" .. name)
+		error("no property: " .. name)
 	end
 
 	if self.value[name] == value then
@@ -51,7 +51,8 @@ function _M:setProperty(name, value)
 	self.value[name] = value
 
 	if not self.event[name] then
-		print("no "..name.." changed event bind.")	
+		print("no "..name.." changed event bind.")
+		return
 	end
 
 	local unpack = unpack or table.unpack
@@ -69,7 +70,7 @@ function _M:getProperty(name)
 	end
 
 	if not self.value[name] then
-		error("no property" .. name)
+		error("no property: " .. name)
 	end
 
 	print("get property: "..name.." value: "..self.value[name])

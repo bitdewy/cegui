@@ -43,8 +43,7 @@ function colourChangeHandler(args)
     local b = model:getProperty("b")
     local col = CEGUI.Colour:new_local(r, g, b, 1)
     local crect = CEGUI.ColourRect(col)
-
-    root:getChild("Demo8/Window1/Controls/ColourSample"):setProperty("ImageColours", CEGUI.PropertyHelper:colourRectToString(crect))
+    model:setProperty("colour", CEGUI.PropertyHelper:colourRectToString(crect))
 end
 
 
