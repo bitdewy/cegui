@@ -4,10 +4,9 @@
 require("Echo")
 
 local model = require("Demo8Data")
-
-local winMgr = CEGUI.WindowManager:getSingleton()
 -- load our demo8 window layout
-local root = winMgr:loadLayoutFromFile("Demo8.layout")
+local windows = require("Echo.Window").loadLayout("Demo8.layout")
+local root = windows.root
 
 -----------------------------------------
 -- Alpha slider handler (not used!)
@@ -24,7 +23,7 @@ end
 -----------------------------------------
 function panelSlideHandler(args)
     local scroller = CEGUI.toScrollbar(CEGUI.toWindowEventArgs(args).window)
-    local demoWnd = root:getChild("Demo8")
+    local demoWnd = windows.demoWnd
 
     local parentPixelHeight = demoWnd:getParent():getPixelSize().height
     local relHeight = CEGUI.CoordConverter:asRelative(demoWnd:getHeight(), parentPixelHeight)
@@ -51,14 +50,14 @@ end
 -- Handler to add an item to the box
 -----------------------------------------
 function addItemHandler(args)
-    local text = root:getChild("Demo8/Window1/Controls/Editbox"):getText()
-    local cols = CEGUI.PropertyHelper:stringToColourRect(root:getChild("Demo8/Window1/Controls/ColourSample"):getProperty("ImageColours"))
+    local text = windows.editBox:getText()
+    local cols = CEGUI.PropertyHelper:stringToColourRect(model:getProperty("colour"))
 
     local newItem = CEGUI.createListboxTextItem(text, 0, nil, false, true)
     newItem:setSelectionBrushImage("TaharezLook/MultiListSelectionBrush")
     newItem:setSelectionColours(cols)
 
-    CEGUI.toListbox(root:getChild("Demo8/Window1/Listbox")):addItem(newItem)
+    windows.listBox:addItem(newItem)
 end
 
 -----------------------------------------
