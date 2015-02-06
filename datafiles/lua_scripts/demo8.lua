@@ -45,7 +45,6 @@ function colourChangeHandler(args)
     model:setProperty("colour", CEGUI.PropertyHelper:colourRectToString(crect))
 end
 
-
 -----------------------------------------
 -- Handler to add an item to the box
 -----------------------------------------

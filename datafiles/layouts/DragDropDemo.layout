@@ -3,12 +3,14 @@
     <Window name="Root" type="DefaultWindow">
 
         <Window name="MainWindow" type="WindowsLook/FrameWindow">
+            <Event name="CloseClicked" function="DragDropDemo.handle_CloseButton" />
             <Property name="Area" value="{{0.25,0},{0.25,0},{0.75,0},{0.75,0}" />
             <Property name="Text" value="Drag and Drop Demo" />
             <Property name="RollUpEnabled" value="False" />
             <Property name="SizingEnabled" value="False" />
 
             <Window name="Slot1" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.05,0},{0.05,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
 
@@ -26,26 +28,31 @@
             </Window>
 
             <Window name="Slot2" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.283,0},{0.05,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot3" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.516,0},{0.05,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot4" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.749,0},{0.05,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot5" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.05,0},{0.37,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot6" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.283,0},{0.37,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
 
@@ -63,31 +70,37 @@
             </Window>
 
             <Window name="Slot7" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.516,0},{0.37,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot8" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.749,0},{0.37,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot9" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.05,0},{0.69,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot10" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.283,0},{0.69,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot11" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.516,0},{0.69,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>
 
             <Window name="Slot12" type="WindowsLook/Static">
+                <Event name="DragDropItemDropped" function="DragDropDemo.handle_ItemDropped" />
                 <Property name="Position" value="{{0.749,0},{0.69,0}}" />
                 <Property name="Size" value="{{0.2,0},{0.26,0}}" />
             </Window>

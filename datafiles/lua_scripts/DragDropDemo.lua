@@ -21,30 +21,6 @@ function DragDropDemo.initialize(args)
     -- load the initial layout
     context:setRootWindow(
         CEGUI.WindowManager:getSingleton():loadLayoutFromFile("DragDropDemo.layout"))
-
-    -- setup events
-    DragDropDemo.subscribeEvents(context)
-end
-
-function DragDropDemo.subscribeEvents(context)
-
-    local root = context:getRootWindow()
-
-    -- Subscribe handler to deal with user closing the frame window
-    pcall(function()
-        local main_wnd = root:getChild("MainWindow")
-        main_wnd:subscribeEvent("CloseClicked", "DragDropDemo.handle_CloseButton")
-    end)
-
-    -- Subscribe the same handler to each of the twelve slots
-    local base_name = "MainWindow/Slot"
-
-    for i = 1, 12 do
-        pcall(function()
-            local wnd = root:getChild(base_name..i)
-            wnd:subscribeEvent("DragDropItemDropped", "DragDropDemo.handle_ItemDropped")
-        end)
-    end
 end
 
 function DragDropDemo.handle_ItemDropped(args)
